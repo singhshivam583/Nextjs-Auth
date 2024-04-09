@@ -50,6 +50,7 @@ export const sendEmail = async({email, emailType, userId}:any) => {
         return mailResponse
         
     } catch (error:any) {
+        // console.log(error.message)
         throw new Error(error.message)
     }
 }

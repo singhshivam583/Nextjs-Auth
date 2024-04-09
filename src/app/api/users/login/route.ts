@@ -3,7 +3,6 @@ import { dbConnect } from "@/dbConnect/dbConnect";
 import User from "@/models/user.model";
 import { NextRequest, NextResponse } from 'next/server';
 import bcryptjs, { hash } from 'bcryptjs';
-import { sendEmail } from "@/helpers/mail.helper";
 
 dbConnect();
 

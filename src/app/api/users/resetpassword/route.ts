@@ -3,15 +3,18 @@ import User from "@/models/user.model";
 import { NextRequest, NextResponse } from 'next/server';
 import bcryptjs from 'bcryptjs';
 
-
 dbConnect()
 
 export async function POST(req:NextRequest, res: NextResponse){
     try {
         const reqBody = await req.json()
-        const { password, confirmPassword, token } = reqBody;
+        const {password, confirmPassword, token} = reqBody;
+        // console.log(reqBody)
 
-        if (!password || !confirmPassword){
+        if(!password || !confirmPassword){
+            return NextResponse.json({Message:"Provide both Passwords"},{status:401}); 
+        }
+        if (password !== confirmPassword){
             return NextResponse.json({Message:"Password doesn't match"},{status:401}); 
         }
 
@@ -22,7 +25,7 @@ export async function POST(req:NextRequest, res: NextResponse){
         if(!user){
             return NextResponse.json({Message:'Invalid Token'},{status:401}); 
         }
-        console.log(user);
+        // console.log(user);
 
         user.password = hashedPassword;
         user.forgotPasswordToken=undefined;

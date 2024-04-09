@@ -1,10 +1,8 @@
-
 import { dbConnect } from "@/dbConnect/dbConnect";
 import User from "@/models/user.model";
 import { NextRequest, NextResponse } from 'next/server';
 import bcryptjs from 'bcryptjs';
 import { sendEmail } from "@/helpers/mail.helper";
-
 
 // localhost:3001/api/users/signup
 
@@ -40,7 +38,6 @@ export async function POST(req: NextRequest, res: NextResponse){
         if(!mailResponse){
             return NextResponse.json({Message:"mail doesn't send"},{status:400})
         }
-
         return NextResponse.json({
             message: "User Registered Successfully", 
             success:true,
@@ -48,7 +45,6 @@ export async function POST(req: NextRequest, res: NextResponse){
             // mailResponse
         },{ status:201 });
 
-        
     } catch (error: any) {
         return NextResponse.json({error: error.message},{status: 500}) 
     }
