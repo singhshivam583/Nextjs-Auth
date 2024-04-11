@@ -8,7 +8,6 @@ import { useRouter } from 'next/navigation'
 export default function ProfilePage(){
     const router = useRouter();
     const [data, setData] = useState("nothing")
-    const [emailSent, setEmailSent] = useState(false)
 
     const getUserDetails = async() => {
         const response = await axios.get('/api/users/me');
