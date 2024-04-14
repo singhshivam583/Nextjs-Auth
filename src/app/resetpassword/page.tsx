@@ -21,7 +21,7 @@ export default function VerifyEmailPage() {
                 alert("Password Changed Successfully")
                 setError(false)
                 setLoading(false);
-              router.push("/login");
+                router.push("/profile");
             }
             
         }catch(error:any){

@@ -23,6 +23,7 @@ export default function LoginPage(){
       setLoading(false);
 
     } catch (error:any) {
+      setLoading(false)
       console.log("Error in Login", error);
       toast.error(error.message);
       

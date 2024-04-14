@@ -12,7 +12,6 @@ export async function GET(req:NextRequest, res:NextResponse){
         if(!user){
             return NextResponse.json({Message:"Invalid Token"}, {status:400})
         }
-        
         const response = NextResponse.json({message:"User Logout Successfully", success:true},{status:200});
         response.cookies.delete("accessToken")
         return response;
